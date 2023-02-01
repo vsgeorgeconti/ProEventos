@@ -14,7 +14,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventosComponent } from './eventos/eventos.component';
-import { PalestrantesComponent } nofrom './palestrantes/palestrantes.component';
+import { PalestrantesComponent } from './palestrantes/palestrantes.component';
 import { NavComponent } from './nav/nav.component';
 
 import { EventoService } from './services/evento.service';
