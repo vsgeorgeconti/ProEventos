@@ -1,0 +1,151 @@
+<form [formGroup]="form">
+  <div class="card rounded shadow-sm">
+    <!-- <p>Form value: {{ form.value | json }}</p>
+    <p>Form valid: {{ form.status | json }}</p> -->
+    <div class="p-3 ms-2">
+      <div class="form-row">
+        <div class="col-md-12 mb-2">
+          <label>Tema</label>
+          <input
+            type="text"
+            class="form-control is-invalid"
+            formControlName="tema"
+            [ngClass]="{
+              'is-invalid': f.tema.errors && f.tema.touched
+            }"
+            placeholder="Insira o Tema"
+          />
+          <div *ngIf="f.tema.errors?.required" class="invalid-feedback">
+            Tema é obrigatário!
+          </div>
+          <div *ngIf="f.tema.errors?.minlength" class="invalid-feedback">
+            Tema deve ter no mínimo 4 caracteres!
+          </div>
+          <div *ngIf="f.tema.errors?.maxlength" class="invalid-feedback">
+            Tema deve ter no máximo 50 caracteres!
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-8 me-2">
+          <label>Local</label>
+          <input
+            type="text"
+            class="form-control is-invalid"
+            formControlName="local"
+            [ngClass]="{
+              'is-invalid': f.local.errors && f.local.touched
+            }"
+            placeholder=""
+          />
+          <div *ngIf="f.local.errors?.required" class="invalid-feedback">
+            Local é obrigatário!
+          </div>
+          <div *ngIf="f.local.errors?.minlength" class="invalid-feedback">
+            Local deve ter no mínimo 4 caracteres!
+          </div>
+          <div *ngIf="f.local.errors?.maxlength" class="invalid-feedback">
+            Local deve ter no máximo 50 caracteres!
+          </div>
+        </div>
+        <div class="col-3 mb-2">
+          <label>Data e Hora</label>
+          <input
+            type="datetime"
+            class="form-control is-invalid"
+            formControlName="dataEvento"
+            [ngClass]="{
+              'is-invalid': f.dataEvento.errors && f.dataEvento.touched
+            }"
+            placeholder=""
+          />
+          <div *ngIf="f.dataEvento.errors?.required" class="invalid-feedback">
+            Data e Hora é obrigatário!
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-3 me-1">
+          <label>Qtd Pessoas</label>
+          <input
+            type="text"
+            class="form-control is-invalid"
+            formControlName="qtdPessoas"
+            [ngClass]="{
+              'is-invalid': f.qtdPessoas.errors && f.qtdPessoas.touched
+            }"
+            placeholder=""
+          />
+          <div *ngIf="f.qtdPessoas.errors?.required" class="invalid-feedback">
+            Qtd Pessoas é obrigatário!
+          </div>
+          <div *ngIf="f.qtdPessoas.errors?.max" class="invalid-feedback">
+            Qtd Pessoas deve ser menor que 120000!
+          </div>
+        </div>
+        <div class="col-md-2 me-1">
+          <label>Telefone</label>
+          <input
+            type="text"
+            class="form-control is-invalid"
+            formControlName="telefone"
+            [ngClass]="{
+              'is-invalid': f.telefone.errors && f.telefone.touched
+            }"
+            placeholder="(000) 90000-0000"
+          />
+          <div *ngIf="f.telefone.errors?.required" class="invalid-feedback">
+            Telefone é obrigatário!
+          </div>
+        </div>
+        <div class="col-md-3 me-1">
+          <label>Email</label>
+          <input
+            type="text"
+            class="form-control is-invalid"
+            formControlName="email"
+            [ngClass]="{
+              'is-invalid': f.email.errors && f.email.touched
+            }"
+            placeholder="e-mail"
+          />
+          <div *ngIf="f.email.errors?.required" class="invalid-feedback">
+            E-mail é obrigatário!
+          </div>
+          <div *ngIf="f.email.errors?.email" class="invalid-feedback">
+            E-mail é inválido!
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label>Imagem</label>
+          <input
+            type="text"
+            class="form-control is-invalid"
+            formControlName="imagemUrl"
+            [ngClass]="{
+              'is-invalid': f.imagemUrl.errors && f.imagemUrl.touched
+            }"
+            placeholder=""
+          />
+          <div *ngIf="f.imagemUrl.errors?.required" class="invalid-feedback">
+            Imagem é obrigatário!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex">
+        <button
+          class="btn btn-outline-secondary me-auto border"
+          (click)="resetForm()"
+        >
+          Cancelar Alteração
+        </button>
+        <button class="btn btn-success" [disabled]="!form.valid">
+          <span class="spinner-border spinner-border-sm me-1"></span>
+          Salvar Evento
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
